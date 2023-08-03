@@ -48,5 +48,14 @@ print(arraydata)
 
 # train_test_split this is used to testing the model on the import data 
 
+X_train, X_test, y_train, y_test = train_test_split(data, data_, test_size=0.3, random_state=42)
+
+print(X_train) 
+print(X_test)
+print(y_train) 
+print(y_test)
+ 
+
+
 
 
