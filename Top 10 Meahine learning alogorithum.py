@@ -9,7 +9,10 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.cluster import KMeans
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, AdaBoostClassifier
 from sklearn.decomposition import PCA
- 
+from sklearn.metrics import accuracy_score 
+
+
+
 # Given dataset
 data = {
     'Age': [35, 45, 28, 52, 30, 38, 29, 41, 33, 50, 36, 48, 31, 42, 27],
@@ -33,7 +36,7 @@ X = df.drop(columns='Target_Variable')
 y = df['Target_Variable']
 
 # Apply OneHotEncoder to the 'Education' column
-onehot_encoder = OneHotEncoder(drop='first', sparse=False)
+onehot_encoder = OneHotEncoder(drop='first', sparse_output=False)
 X_encoded = onehot_encoder.fit_transform(X[['Education']])
 X_encoded_df = pd.DataFrame(X_encoded, columns=onehot_encoder.get_feature_names_out(['Education']))
 X = pd.concat([X.drop(columns='Education'), X_encoded_df], axis=1)
@@ -45,73 +48,71 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 lr_model = LinearRegression()
 lr_model.fit(X_train, y_train)
 lr_predictions = lr_model.predict(X_test)
-print("Linear Regression Predictions:")
+print("1):Linear Regression Predictions:")
 print(lr_predictions)
 
 # 2. Logistic Regression
 logistic_model = LogisticRegression()
 logistic_model.fit(X_train, y_train)
 logistic_predictions = logistic_model.predict(X_test)
-print("Logistic Regression Predictions:")
+print("2)Logistic Regression Predictions:")
 print(logistic_predictions)
 
 # 3. Decision Tree
 dt_model = DecisionTreeClassifier()
 dt_model.fit(X_train, y_train)
 dt_predictions = dt_model.predict(X_test)
-print("Decision Tree Predictions:")
+print("3):Decision Tree Predictions:")
 print(dt_predictions)
 
 # 4. Support Vector Machine (SVM)
 svm_model = SVC()
 svm_model.fit(X_train, y_train)
 svm_predictions = svm_model.predict(X_test)
-print("SVM Predictions:")
+print("4):SVM Predictions:")
 print(svm_predictions)
 
 # 5. Naive Bayes
 nb_model = GaussianNB()
 nb_model.fit(X_train, y_train)
 nb_predictions = nb_model.predict(X_test)
-print("Naive Bayes Predictions:")
+print("5):Naive Bayes Predictions:")
 print(nb_predictions)
 
-# 6. K-Nearest Neighbors (KNN)
-knn_model = KNeighborsClassifier() 
-knn_model.fit(X_train, y_train)
-knn_predictions = knn_model.predict(X_test)
-print("KNN Predictions:")
-print(knn_predictions)
 
-# 7. K-Means (Clustering)
-kmeans_model = KMeans(n_clusters=3)
-kmeans_model.fit(X_train)
-kmeans_predictions = kmeans_model.predict(X_test)
-print("K-Means Clustering Predictions:")
-print(kmeans_predictions)
+# 6  K-Nearest Neighbors (KNN)
+knn_model = KNeighborsClassifier(n_neighbors=3)
+knn_model.fit(X_train, y_train) 
+knn_predictions = knn_model.predict(X_test)
+# Evaluate the KNN model
+accuracy = accuracy_score(y_test, knn_predictions)
+print("6): KNN Accuracy:", accuracy)
+
+# this is :AdaBoost Predictions: 
+adaboost_model = AdaBoostClassifier()
+adaboost_model.fit(X_train, y_train)
+adaboost_predictions = adaboost_model.predict(X_test)
+print("7):AdaBoost Predictions:")
+print(adaboost_predictions)
+
 
 # 8. Random Forest
 rf_model = RandomForestClassifier()
 rf_model.fit(X_train, y_train)
 rf_predictions = rf_model.predict(X_test)
-print("Random Forest Predictions:")
+print("8):Random Forest Predictions:")
 print(rf_predictions)
 
 # 9. Dimensionality Reduction - PCA
 pca = PCA(n_components=2)
 X_pca = pca.fit_transform(X)
-print("PCA Reduced Data:")
+print("9):PCA Reduced Data:")
 print(X_pca)
 
 # 10. Gradient Boosting and AdaBoost
 gb_model = GradientBoostingClassifier()
 gb_model.fit(X_train, y_train)
 gb_predictions = gb_model.predict(X_test)
-print("Gradient Boosting Predictions:")
+print("10):Gradient Boosting Predictions:")
 print(gb_predictions)
 
-adaboost_model = AdaBoostClassifier()
-adaboost_model.fit(X_train, y_train)
-adaboost_predictions = adaboost_model.predict(X_test)
-print("AdaBoost Predictions:")
-print(adaboost_predictions)
