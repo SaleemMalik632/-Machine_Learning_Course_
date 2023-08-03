@@ -1,3 +1,16 @@
 1): Data preprocessing  
 --> relacing messing data 
 --> endocdig intagral data 
+What‌ ‌are‌ ‌the‌ ‌10 ‌Popular‌ ‌Machine‌ ‌Learning Algorithms?‌
+Below is the list of Top 10 commonly used Machine Learning (ML) Algorithms:
+
+Linear regression
+Logistic regression
+Decision tree 
+SVM algorithm
+Naive Bayes algorithm
+KNN algorithm
+K-means
+Random forest algorithm
+Dimensionality reduction algorithms
+Gradient boosting algorithm and AdaBoosting algorithm
