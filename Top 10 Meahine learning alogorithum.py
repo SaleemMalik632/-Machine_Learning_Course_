@@ -25,6 +25,7 @@ data = {
 
 # Convert the dataset to a pandas DataFrame
 df = pd.DataFrame(data)
+print(df) 
 
 # Encode categorical columns 'Gender' and 'Marital_Status' using LabelEncoder
 label_encoder = LabelEncoder()
