@@ -17,5 +17,5 @@ LogReg.fit(X_train, y_train)
 pre  =  LogReg.predict(x_test)
 print(pre)
 pre  = LogReg.predict([[100]])
-print(pre)
+print(pre) 
  
