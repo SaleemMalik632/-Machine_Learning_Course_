@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 data = {
     'Age': [35, 45, 28, 52, 30, 38, 29, 41, 33, 50, 36, 48, 31, 42, 27],
     'Marital_Status': ['Single', 'Married', 'Single', 'Married', 'Single', 'Married', 'Single', 'Married', 'Single', 'Married', 'Single', 'Married', 'Single', 'Married', 'Single']
-}
+} 
 
 df = pd.DataFrame(data)
 print(df)
