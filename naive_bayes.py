@@ -12,7 +12,7 @@ data = {
 df = pd.DataFrame(data)
 df['Gender'].replace({'Male':1 ,'Female':0 } , inplace= True) 
 
-x_train , x_test  , y_train ,y_test =  train_test_split(df[['Age' , 'Gender' , 'Income']] , df["GET"] , test_size= 0.2 )
+x_train , x_test  , y_train ,y_test =  train_test_split(df[['Age' , 'Gender' , 'Income']] , df["GET"] , test_size= 0.3 )
 
 print(x_test)
 
