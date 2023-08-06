@@ -17,7 +17,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, Label)
 
 Model = LogisticRegression(multi_class='multinomial', solver='lbfgs')
 Model.fit(X, Label) 
-text= 'жаль что ты со школы так изменилась, пьешь много?'
+text= 'жаль что ты со  школы так изменилась, пьешь много?'
 TestSimple = vectorizer.transform([text]) 
 print(Model.score(X_test , y_test)) 
 TestSimple_pred = Model.predict(TestSimple)
