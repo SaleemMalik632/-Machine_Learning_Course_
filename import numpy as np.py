@@ -31,6 +31,6 @@ y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {accuracy:.2f}")
 
-report = classification_report(y_test, y_pred)
-print("Classification Report:")
+report = classification_report(y_test, y_pred)  
+print("Classification Report:") 
 print(report)
