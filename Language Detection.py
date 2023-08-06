@@ -7,9 +7,9 @@ from sklearn.metrics import accuracy_score, classification_report
 
 data = pd.read_csv('Language Detection.csv')
 
-x = data['Text']
-Label = data['Language']
-vectorizer = CountVectorizer()
+x = data['Text']  
+Label = data['Language']     
+vectorizer = CountVectorizer() 
 X = vectorizer.fit_transform(x)
 
 
@@ -21,4 +21,4 @@ text= 'жаль что ты со школы так изменилась, пье�
 TestSimple = vectorizer.transform([text]) 
 print(Model.score(X_test , y_test)) 
 TestSimple_pred = Model.predict(TestSimple)
-print(TestSimple_pred)
+print(TestSimple_pred)   
