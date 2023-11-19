@@ -13,7 +13,8 @@ vectorizer = CountVectorizer()
 X = vectorizer.fit_transform(x)
 
 
-X_train, X_test, y_train, y_test = train_test_split(X, Label)    
+X_train, X_test, y_train, y_test = train_test_split(X, Label) 
+print(X_train, X_test, y_train, y_test)   
 
 Model = LogisticRegression(multi_class='multinomial', solver='lbfgs')
 Model.fit(X, Label) 
